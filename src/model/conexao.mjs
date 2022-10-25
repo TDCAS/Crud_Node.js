@@ -1,6 +1,9 @@
 import  Sequelize  from "sequelize"
 
+
+
 function Conexão(){
+    
     this.validar = function(valida){
         if(valida == true ){
 
@@ -14,27 +17,13 @@ function Conexão(){
         }}
 }
 
-let cox =  new Conexão()
+let cox =  new Conexão
 
 
 
-function Tables(){
-    cox.validar(true)
-    this.tb_cliente = cox.sequelize.define('client', {
-    cl_name: {
-        type: Sequelize.STRING
-    },
-    cl_email: {
-        type: Sequelize.STRING
-    },
-    cl_senha: {
-        type: Sequelize.STRING
-    }},
-    console.log("dados insertados"))
-    cox.validar(false)
-}
 
     
+
 
   
     
@@ -43,6 +32,7 @@ function Tables(){
     //Cria tabela com Sequelize
     //table.sync({force: true})
 
-let table  = new Tables()
-export default  {table,Sequelize}
+
+
+export default {cox,Sequelize}
 
