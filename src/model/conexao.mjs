@@ -4,17 +4,17 @@ import  Sequelize  from "sequelize"
 
 function Conexão(){
     
-    this.validar = function(valida){
-        if(valida == true ){
+    this.validar = function(){
+        
 
-            this.sequelize = new Sequelize('db_sur', 'allan', 'root',{
-            host: 'localhost',
-            dialect: 'mysql'},
-            console.log("conexao valida") )
+        const sequelize = new Sequelize('db_sur', 'allan', 'root',{
+        host: 'localhost',
+        dialect: 'mysql'},
+        console.log("conexao valida") )
 
-        }else {
-        console.log("conexão nao validada")
-        }}
+            return sequelize
+        }
+    
 }
 
 let cox =  new Conexão
@@ -34,5 +34,5 @@ let cox =  new Conexão
 
 
 
-export default {cox,Sequelize}
+export default cox
 

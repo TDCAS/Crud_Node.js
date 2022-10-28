@@ -1,25 +1,28 @@
-
+import  Sequelize  from "sequelize"
 import db from "./conexao.mjs"
 
 
 
 
-function tables(){
-    db.cox.validar(true)
-    let tb_cliente = 
-            db.cox.sequelize.define('client', {
+
+
+
+function  tables(){
+   
+   let tb_cliente =  
+            db.validar().define('client', {
                 cl_name: {
-                    type: db.Sequelize.STRING
+                    type: Sequelize.STRING
                 },
                 cl_email: {
-                    type: db.Sequelize.STRING
+                    type: Sequelize.STRING
                 },
                 cl_senha: {
-                    type: db.Sequelize.STRING
+                    type: Sequelize.STRING
         }},
         console.log("dados insertados"))
-        db.cox.validar(false)
-        return tb_cliente    
+        
+        return tb_cliente
     
     }
 
@@ -27,19 +30,38 @@ function tables(){
         
     function Query(){
 
-        this.db_clinte = function(name,email,senha){tables().create({
+        this.db_clinte = async function(name,email,senha){
+            
+            await tables().create({
             cl_name: name,
             cl_email: email,
             cl_senha: senha,
         },
         console.log("dados cadastrados") 
         )
-    }}
+       
+    }
+
+    this.select_cliete = async (name,email,senha) => {
+        await db.validar().sync()
+    
+          const pegarcadastro = await tables().findAll({
+            where: {
+                cl_name: "oloko"
+            }
+          });
+          console.log(pegarcadastro)
+      };
+
+
+}
 
 
 const create = new Query()
 
-    
-
 export default  create
+
+
+
+
 
